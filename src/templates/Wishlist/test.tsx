@@ -22,7 +22,7 @@ jest.mock('components/Showcase', () => ({
 
 describe('<Wishlist />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<Wishlist {...props} />)
+    renderWithTheme(<Wishlist recommendedTitle="Recommended" {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /wishlist/i })
@@ -34,6 +34,7 @@ describe('<Wishlist />', () => {
   it('should render empty when there are no games', () => {
     renderWithTheme(
       <Wishlist
+        recommendedTitle="Recommended"
         recommendedGames={gamesMock}
         recommendedHighLight={highLightMock}
       />

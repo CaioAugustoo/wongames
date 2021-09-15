@@ -1,18 +1,21 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { CartContextDefaultValues } from 'hooks/useCart'
+import { render } from 'utils/test-utils'
 
 import CartIcon from '.'
 
 describe('<CartIcon />', () => {
   it('should render without badge', () => {
-    renderWithTheme(<CartIcon />)
+    render(<CartIcon />)
 
     expect(screen.getByLabelText(/Shopping cart/i)).toBeInTheDocument()
     expect(screen.queryByLabelText(/Cart items/i)).not.toBeInTheDocument()
   })
 
   it('should render with badge', () => {
-    renderWithTheme(<CartIcon quantity={10} />)
+    render(<CartIcon />, {
+      cartProviderProps: { ...CartContextDefaultValues, quantity: 10 }
+    })
 
     expect(screen.getByLabelText(/Shopping cart/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/Cart items/i)).toBeInTheDocument()

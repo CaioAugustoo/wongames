@@ -10,7 +10,6 @@ describe('<CartDropdown />', () => {
     renderWithTheme(<CartDropdown items={items} total="$300,00" />)
 
     expect(screen.getByLabelText(/Shopping cart/i)).toBeInTheDocument()
-    expect(screen.getByText(`${items.length}`)).toBeInTheDocument()
   })
 
   it('should render Dropdown content with cart items and total', () => {

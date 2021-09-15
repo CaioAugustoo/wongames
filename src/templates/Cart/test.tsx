@@ -1,7 +1,6 @@
 import 'match-media-mock'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-import { CartContextDefaultValues } from 'hooks/useCart'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highLightMock from 'components/Highlight/mock'

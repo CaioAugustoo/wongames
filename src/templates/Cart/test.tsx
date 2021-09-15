@@ -1,6 +1,7 @@
 import 'match-media-mock'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import { CartContextDefaultValues } from 'hooks/useCart'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highLightMock from 'components/Highlight/mock'
@@ -54,7 +55,7 @@ jest.mock('components/Empty', () => ({
 
 describe('<Cart />', () => {
   it('should render sections', () => {
-    renderWithTheme(<Cart {...props} />)
+    renderWithTheme(<Cart cartTitle="My cart" {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /My cart/i })
@@ -66,7 +67,7 @@ describe('<Cart />', () => {
   })
 
   it('should render empty section if there are no items', () => {
-    renderWithTheme(<Cart {...props} items={[]} />)
+    renderWithTheme(<Cart cartTitle="My Cart" {...props} items={[]} />)
 
     expect(screen.getByTestId('Mock Empty')).toBeInTheDocument()
   })

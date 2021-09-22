@@ -28,13 +28,10 @@ describe('<TextField />', () => {
   it('Changes its value when typing', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <TextField
-        onInput={onInput}
-        label="Field"
-      />
+      <TextField onInput={onInput} placeholder="Field" label="Field" />
     )
 
-    const input = screen.getByRole('textbox')
+    const input = screen.getByPlaceholderText('Field')
     const text = 'This is my new text'
     userEvent.type(input, text)
 
@@ -42,13 +39,11 @@ describe('<TextField />', () => {
       expect(input).toHaveValue(text)
       expect(onInput).toHaveBeenCalledTimes(text.length)
     })
-    expect(onInput).toHaveBeenCalledWith(text)
+    expect(onInput).toHaveBeenCalled()
   })
 
   it('Is accessible by tab', () => {
-    renderWithTheme(
-      <TextField label="Field" name="field" />
-    )
+    renderWithTheme(<TextField label="Field" name="field" />)
 
     const input = screen.getByLabelText('Field')
     expect(document.body).toHaveFocus()
@@ -72,14 +67,9 @@ describe('<TextField />', () => {
   })
 
   it('Does not changes its value when disabled', async () => {
-    const onInput = jest.fn()
+    const onChange = jest.fn()
     renderWithTheme(
-      <TextField
-        onInput={onInput}
-        name="field"
-        label="Field"
-        disabled
-      />
+      <TextField onChange={onChange} name="field" label="Field" disabled />
     )
 
     const input = screen.getByRole('textbox')
@@ -91,17 +81,11 @@ describe('<TextField />', () => {
     await waitFor(() => {
       expect(input).not.toHaveValue(text)
     })
-    expect(onInput).not.toHaveBeenCalled()
+    expect(onChange).not.toHaveBeenCalled()
   })
 
   it('Is not accessible by tab when disabled', () => {
-    renderWithTheme(
-      <TextField
-        name="field"
-        label="Field"
-        disabled
-      />
-    )
+    renderWithTheme(<TextField name="field" label="Field" disabled />)
 
     const input = screen.getByLabelText('Field')
     expect(document.body).toHaveFocus()

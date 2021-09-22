@@ -11,6 +11,7 @@ import { GameDetailsProps } from 'components/GameDetails'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 const props: GameTemplateProps = {
+  id: '1',
   cover: 'bg-image.jpg',
   gameInfo: gameInfoMock,
   gallery: galleryMock,

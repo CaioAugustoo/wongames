@@ -38,6 +38,19 @@ export const Wrapper = styled.div<WrapperProps>`
   `}
 `
 
+export const GamesList = styled.div`
+  max-height: 30rem;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #bebebe;
+    border-radius: 10px;
+  }
+`
+
 export const Footer = styled.div`
   ${({ theme }) => css`
     background: ${tint(0.2, theme.colors.lightGray)};

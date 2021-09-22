@@ -28,9 +28,11 @@ const CartList = ({ hasButton = false }: CartListProps) => {
     <S.Wrapper isEmpty={!items.length}>
       {items.length ? (
         <>
-          {items.map((item) => (
-            <GameItem key={item.title} {...item} />
-          ))}
+          <S.GamesList>
+            {items.map((item) => (
+              <GameItem key={item.title} {...item} />
+            ))}
+          </S.GamesList>
 
           <S.Footer>
             {!hasButton && <span>Total:</span>}

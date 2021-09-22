@@ -39,7 +39,7 @@ export const Wrapper = styled.div<WrapperProps>`
 `
 
 export const GamesList = styled.div`
-  max-height: 30rem;
+  max-height: 40rem;
   overflow-y: auto;
 
   ::-webkit-scrollbar {

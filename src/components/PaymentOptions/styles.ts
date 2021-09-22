@@ -3,16 +3,14 @@ import styled, { css, DefaultTheme } from 'styled-components'
 
 import * as ButtonStyles from 'components/Button/styles'
 
-export const Wrapper = styled.main`
-  ${({ theme }) => css`
-    background: ${theme.colors.white};
-  `}
-`
+export const Wrapper = styled.div``
 
 export const Body = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacings.small} ${theme.spacings.small}
       ${theme.spacings.xsmall} ${theme.spacings.small};
+
+    background: ${theme.colors.white};
   `}
 `
 
@@ -37,6 +35,7 @@ export const CardsList = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    background: ${theme.colors.white};
     padding: 0 ${theme.spacings.small} ${theme.spacings.small}
       ${theme.spacings.small};
   `}

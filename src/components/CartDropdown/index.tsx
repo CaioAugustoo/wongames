@@ -1,9 +1,9 @@
 import Dropdown from 'components/Dropdown'
 import { GameItemProps } from 'components/GameItem'
 import CartIcon from 'components/CartIcon'
+import CartList from 'components/CartList'
 
 import * as S from './styles'
-import CartList from 'components/CartList'
 
 export type CartDropdownProps = {
   items?: GameItemProps[]

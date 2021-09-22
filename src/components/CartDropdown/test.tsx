@@ -7,15 +7,15 @@ import CartDropdown from '.'
 
 describe('<CartDropdown />', () => {
   it('should render <CartIcon /> and its badge', () => {
-    renderWithTheme(<CartDropdown items={items} total="$300,00" />)
+    renderWithTheme(<CartDropdown items={items} total="$ 300,00" />)
 
     expect(screen.getByLabelText(/Shopping cart/i)).toBeInTheDocument()
   })
 
   it('should render Dropdown content with cart items and total', () => {
-    renderWithTheme(<CartDropdown items={items} total="$300,00" />)
+    renderWithTheme(<CartDropdown items={items} total="$ 300,00" />)
 
-    expect(screen.getByText('$300,00')).toBeInTheDocument()
+    expect(screen.getByText('$ 300,00')).toBeInTheDocument()
     expect(screen.getByText(/Borderlands 3/i)).toBeInTheDocument()
   })
 })

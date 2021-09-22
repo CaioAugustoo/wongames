@@ -1,5 +1,6 @@
-import { useQueryGames } from 'graphql/queries/games'
 import { useContext, createContext, useState, useEffect } from 'react'
+import { useQueryGames } from 'graphql/queries/games'
+
 import { formatPrice } from 'utils/formatters/price'
 import { getStorageItem, setStorageItem } from 'utils/localStorage'
 import { cartMapper } from 'utils/mappers'

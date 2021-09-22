@@ -7,7 +7,7 @@ import * as S from './styles'
 const CartDropdown = () => (
   <S.Wrapper>
     <Dropdown title={<CartIcon />}>
-      <CartList />
+      <CartList hasButton />
     </Dropdown>
   </S.Wrapper>
 )

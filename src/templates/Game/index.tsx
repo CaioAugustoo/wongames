@@ -1,16 +1,17 @@
 import Base from 'templates/Base'
 
+import { GameCardProps } from 'components/GameCard'
+import { Divider } from 'components/Divider'
 import GameInfo, { GameInfoProps } from 'components/GameInfo'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import GameDetails, { GameDetailsProps } from 'components/GameDetails'
-
-import TextContent from 'components/TextContent'
-import * as S from './styles'
-import { GameCardProps } from 'components/GameCard'
 import Showcase from 'components/Showcase'
-import { Divider } from 'components/Divider'
+import TextContent from 'components/TextContent'
+
+import * as S from './styles'
 
 export type GameTemplateProps = {
+  id: string
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]
@@ -22,6 +23,7 @@ export type GameTemplateProps = {
 }
 
 const Game = ({
+  id,
   cover,
   gameInfo,
   gallery,
@@ -35,7 +37,7 @@ const Game = ({
 
     <S.Main>
       <S.SectionGameInfo>
-        <GameInfo {...gameInfo} />
+        <GameInfo {...gameInfo} id={id} />
       </S.SectionGameInfo>
 
       <S.SectionGallery>

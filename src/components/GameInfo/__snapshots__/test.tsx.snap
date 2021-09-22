@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GameInfo /> should render game informations 1`] = `
+.c7 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
 .c6 {
   background: #47c8ff;
   color: #FAFAFA;
@@ -149,12 +155,6 @@ exports[`<GameInfo /> should render game informations 1`] = `
   border-right-width: 2rem;
 }
 
-.c7 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
 .c0 {
   position: relative;
   background: #FAFAFA;
@@ -261,6 +261,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
     >
       <svg
         aria-hidden="true"
+        aria-label="Add to cart"
         class="c7"
         fill="currentColor"
         focusable="false"

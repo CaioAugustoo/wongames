@@ -9,11 +9,11 @@ import {
   QueryGameBySlug,
   QueryGameBySlugVariables
 } from 'graphql/generated/QueryGameBySlug'
-
-import { initializeApollo } from 'utils/apollo'
 import { QueryRecommended } from 'graphql/generated/QueryRecommended'
 import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
+
 import { gamesMapper, highlightMapper } from 'utils/mappers'
+import { initializeApollo } from 'utils/apollo'
 
 const apolloClient = initializeApollo()
 
@@ -65,6 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     revalidate: 60,
     props: {
+      id: game.id,
       cover: game.cover?.src ?? 'img/img_game_fallback.png',
       gameInfo: {
         title: game.name,

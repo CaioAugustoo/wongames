@@ -1,17 +1,20 @@
+import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
+
+import { useRouter } from 'next/router'
+
 import Base from 'templates/Base'
 
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import GameCard from 'components/GameCard'
 import { Grid } from 'components/Grid'
+import Empty from 'components/Empty'
+
+import { useQueryGames } from 'graphql/queries/games'
+import { ParsedUrlQueryInput } from 'querystring'
+
+import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
 
 import * as S from './styles'
-import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
-import { useQueryGames } from 'graphql/queries/games'
-
-import { useRouter } from 'next/router'
-import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
-import { ParsedUrlQueryInput } from 'querystring'
-import Empty from 'components/Empty'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -64,6 +67,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
               <Grid>
                 {data?.games.map((game) => (
                   <GameCard
+                    id={game.id}
                     key={game.slug}
                     title={game.name}
                     slug={game.slug}

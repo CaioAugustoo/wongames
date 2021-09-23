@@ -21,7 +21,7 @@ type SignUpValues = {
   username: string
 } & SignInValues
 
-type FieldErrors = {
+export type FieldErrors = {
   [key: string]: string
 }
 

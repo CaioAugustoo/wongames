@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
@@ -16,34 +17,37 @@ const options = {
       name: 'Sign-in',
       credentials: {},
       async authorize({ email, password }: AuthorizeProps) {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
-          method: 'POST',
-          body: new URLSearchParams({ identifier: email, password })
-        })
-        const { user, jwt } = await res.json()
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/local`,
+          {
+            method: 'POST',
+            body: new URLSearchParams({ identifier: email, password })
+          }
+        )
 
-        if (user) {
-          return { ...user, jwt }
+        const data = await response.json()
+
+        if (data.user) {
+          return { ...data.user, jwt: data.jwt }
+        } else {
+          return null
         }
-
-        return null
       }
     })
   ],
   callbacks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     session: async (session: any, user: any) => {
       session.jwt = user.jwt
       session.id = user.id
 
       return Promise.resolve(session)
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     jwt: async (token: any, user: any) => {
       if (user) {
         token.id = user.id
         token.email = user.email
-        token.username = user.username
+        token.name = user.username
+        token.jwt = user.jwt
       }
 
       return Promise.resolve(token)

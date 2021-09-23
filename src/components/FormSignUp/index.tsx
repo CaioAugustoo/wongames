@@ -26,16 +26,6 @@ const FormSignUp = () => {
     event.preventDefault()
 
     const { username, email, password } = values
-
-    await RegisterUser({
-      variables: {
-        input: {
-          username,
-          email,
-          password
-        }
-      }
-    })
   }
 
   return (

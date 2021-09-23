@@ -7,8 +7,8 @@ const fieldsValidations = {
     .required(),
   password: Joi.string().required(),
   confirm_password: Joi.string()
-    .valid(Joi.ref('password'))
     .required()
+    .valid(Joi.ref('password'))
     .messages({ 'any.only': 'confirm password does not match with password' })
 }
 
@@ -19,6 +19,7 @@ type SignInValues = {
 
 type SignUpValues = {
   username: string
+  confirm_password: string
 } & SignInValues
 
 export type FieldErrors = {

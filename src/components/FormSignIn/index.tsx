@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 import { Email, Lock } from '@styled-icons/material-outlined'
 
-import { FormLink, FormWrapper } from 'components/Form'
+import { FormLink, FormLoading, FormWrapper } from 'components/Form'
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 
@@ -17,6 +17,7 @@ const FormSignIn = () => {
     email: '',
     password: ''
   })
+  const [loading, setLoading] = useState(false)
 
   const handleInputChange = (field: string, value: string) => {
     setValues((prev) => ({ ...prev, [field]: value }))
@@ -24,6 +25,7 @@ const FormSignIn = () => {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    setLoading(true)
 
     const result = await signIn('credentials', {
       ...values,
@@ -34,6 +36,8 @@ const FormSignIn = () => {
     if (result?.url) {
       return push(result.url)
     }
+
+    setLoading(false)
   }
 
   return (
@@ -56,8 +60,8 @@ const FormSignIn = () => {
           onChange={(e) => handleInputChange('password', e.target.value)}
         />
         <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
-        <Button size="large" fullWidth>
-          Sign in now!
+        <Button disabled={loading} size="large" fullWidth>
+          {loading ? <FormLoading /> : 'Sign in now!'}
         </Button>
 
         <FormLink>

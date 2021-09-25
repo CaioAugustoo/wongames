@@ -8,7 +8,7 @@ import { FormError, FormLoading, FormWrapper } from 'components/Form'
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 
-import { FieldErrors, forgotValidate } from 'utils/validations'
+import { FieldErrors, resetValidate } from 'utils/validations'
 
 const FormReset = () => {
   const [formError, setFormError] = useState('')
@@ -32,13 +32,13 @@ const FormReset = () => {
     event.preventDefault()
     setLoading(true)
 
-    // const errors = forgotValidate(values)
+    const errors = resetValidate(values)
 
-    // if (Object.keys(errors).length) {
-    //   setFieldError(errors)
-    //   setLoading(false)
-    //   return
-    // }
+    if (Object.keys(errors).length) {
+      setFieldError(errors)
+      setLoading(false)
+      return
+    }
 
     setFieldError({})
 

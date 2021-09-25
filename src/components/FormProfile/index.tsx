@@ -2,14 +2,11 @@ import Heading from 'components/Heading'
 import TextField from 'components/TextField'
 import Button from 'components/Button'
 import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
-
-import { useSession } from 'next-auth/client'
+import { FormProfileProps } from 'pages/profile/me'
 
 import * as S from './styles'
 
-const FormProfile = () => {
-  const [session] = useSession()
-
+const FormProfile = ({ username, email }: FormProfileProps) => {
   return (
     <S.Wrapper>
       <Heading size="small" color="black" lineBottom lineColor="primary">
@@ -19,10 +16,10 @@ const FormProfile = () => {
       <S.Form>
         <TextField
           icon={<AccountCircle />}
-          name="name"
-          placeholder="Name"
-          label="Name"
-          defaultValue={session?.user?.name ?? ''}
+          name="userName"
+          placeholder="User Name"
+          label="User Name"
+          defaultValue={username}
           disabled
         />
         <TextField
@@ -31,7 +28,7 @@ const FormProfile = () => {
           type="email"
           placeholder="Email"
           label="Email"
-          defaultValue={session?.user?.email ?? ''}
+          defaultValue={email}
           disabled
         />
         <TextField
@@ -40,7 +37,7 @@ const FormProfile = () => {
           name="password"
           placeholder="Your Password"
           label="Password"
-          defaultValue=""
+          initialValue=""
         />
         <TextField
           icon={<Lock />}

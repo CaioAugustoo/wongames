@@ -1,6 +1,8 @@
 import Ribbon, { RibbonColors, RibbonSizes } from '../Ribbon/index'
 
 import Button from '../Button/index'
+import Link from 'next/link'
+
 import * as S from './styles'
 
 export type BannerProps = {
@@ -36,9 +38,11 @@ const Banner = ({
       <S.Title>{title}</S.Title>
 
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-      <Button as="a" href={buttonLink} size="large">
-        {buttonLabel}
-      </Button>
+      <Link href={`/game/${buttonLink}`} passHref>
+        <Button as="a" size="large">
+          {buttonLabel}
+        </Button>
+      </Link>
     </S.Caption>
   </S.Wrapper>
 )

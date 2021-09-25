@@ -93,7 +93,7 @@ const FormForgot = () => {
               type="email"
               icon={<Email />}
               value={values.email}
-              initialValue={query.email as string}
+              defaultValue={query.email as string}
               onChange={(e) => handleInputChange('email', e.target.value)}
             />
             <Button disabled={loading} size="large" fullWidth>

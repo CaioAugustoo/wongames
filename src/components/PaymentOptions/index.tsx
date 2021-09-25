@@ -6,6 +6,8 @@ import Button from 'components/Button'
 import Heading from 'components/Heading'
 import Radio from 'components/Radio'
 
+import Link from 'next/link'
+
 import * as S from './styles'
 
 export type PaymentOptionsProps = {
@@ -53,9 +55,11 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => {
       </S.CardsList>
 
       <S.Footer>
-        <Button as="a" fullWidth minimal>
-          Continue shopping
-        </Button>
+        <Link href="/games" passHref>
+          <Button as="a" fullWidth minimal>
+            Continue shopping
+          </Button>
+        </Link>
 
         <Button
           fullWidth

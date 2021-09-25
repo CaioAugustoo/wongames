@@ -273,7 +273,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         </div>
         <input
           class="c5"
-          name="confirm-password"
+          name="confirm_password"
           placeholder="Confirm Password"
           type="password"
           value=""

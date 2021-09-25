@@ -22,7 +22,7 @@ const FormProfile = () => {
           name="name"
           placeholder="Name"
           label="Name"
-          value={session?.user?.name ?? ''}
+          defaultValue={session?.user?.name ?? ''}
           disabled
         />
         <TextField
@@ -31,7 +31,7 @@ const FormProfile = () => {
           type="email"
           placeholder="Email"
           label="Email"
-          value={session?.user?.email ?? ''}
+          defaultValue={session?.user?.email ?? ''}
           disabled
         />
         <TextField
@@ -40,7 +40,7 @@ const FormProfile = () => {
           name="password"
           placeholder="Your Password"
           label="Password"
-          value=""
+          defaultValue=""
         />
         <TextField
           icon={<Lock />}

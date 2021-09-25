@@ -523,7 +523,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
       </h3>
       <a
         class="c10"
-        href="/games/rdr2"
+        href="/game//games/rdr2"
       >
         <span>
           Buy now

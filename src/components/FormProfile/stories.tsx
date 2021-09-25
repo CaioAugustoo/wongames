@@ -8,6 +8,6 @@ export default {
 
 export const Default: Story = () => (
   <div style={{ maxWidth: 860, margin: 'auto' }}>
-    <FormProfile />
+    <FormProfile username="caioaugusto" email="caio@won.com" />
   </div>
 )

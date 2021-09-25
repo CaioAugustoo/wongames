@@ -5,7 +5,7 @@ import FormProfile from '.'
 
 describe('<FormProfile />', () => {
   it('should render the profile form', () => {
-    renderWithTheme(<FormProfile />)
+    renderWithTheme(<FormProfile username="caioaugusto" email="caio@won.com" />)
 
     expect(
       screen.getByRole('heading', { name: /My profile/i })
@@ -14,10 +14,12 @@ describe('<FormProfile />', () => {
     expect(screen.getByRole('textbox', { name: /name/i })).toBeInTheDocument()
     expect(screen.getByRole('textbox', { name: /email/i })).toBeInTheDocument()
 
-    expect(screen.getByPlaceholderText(/Your password/i)).toBeInTheDocument()
-
-    expect(screen.getByPlaceholderText(/New password/i)).toBeInTheDocument()
-
+    expect(
+      screen.getByRole('link', { name: /Reset password/i })
+    ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Save/i })).toBeInTheDocument()
+
+    expect(screen.getByPlaceholderText('User Name')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Email')).toBeInTheDocument()
   })
 })

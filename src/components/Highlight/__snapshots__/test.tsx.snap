@@ -121,7 +121,7 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
     </h3>
     <a
       class="c5"
-      href="/rdr2"
+      href="/game//rdr2"
     >
       <span>
         Buy now

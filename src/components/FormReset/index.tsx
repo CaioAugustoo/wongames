@@ -1,29 +1,26 @@
 import { FormEvent, useState } from 'react'
-import Link from 'next/link'
 import { signIn } from 'next-auth/client'
 import { useRouter } from 'next/router'
 
-import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
+import { Lock, ErrorOutline } from '@styled-icons/material-outlined'
 
-import { FormError, FormLink, FormLoading, FormWrapper } from 'components/Form'
+import { FormError, FormLoading, FormWrapper } from 'components/Form'
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 
-import { FieldErrors, signInValidate } from 'utils/validations'
+import { FieldErrors, resetValidate } from 'utils/validations'
 
-import * as S from './styles'
-
-const FormSignIn = () => {
+const FormReset = () => {
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErrors>({
-    email: '',
-    password: ''
+    password: '',
+    confirm_password: ''
   })
   const routes = useRouter()
   const { push, query } = routes
   const [values, setValues] = useState({
-    email: '',
-    password: ''
+    password: '',
+    confirm_password: ''
   })
   const [loading, setLoading] = useState(false)
 
@@ -35,7 +32,7 @@ const FormSignIn = () => {
     event.preventDefault()
     setLoading(true)
 
-    const errors = signInValidate(values)
+    const errors = resetValidate(values)
 
     if (Object.keys(errors).length) {
       setFieldError(errors)
@@ -48,7 +45,7 @@ const FormSignIn = () => {
     const result = await signIn('credentials', {
       ...values,
       redirect: false,
-      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
+      callbackUrl: `${window.location.origin}${query?.email || ''}`
     })
 
     if (result?.url) {
@@ -56,7 +53,7 @@ const FormSignIn = () => {
     }
 
     setLoading(false)
-    setFormError('Username or password is invalid.')
+    setFormError('Email is invalid.')
   }
 
   return (
@@ -69,39 +66,31 @@ const FormSignIn = () => {
       )}
       <form onSubmit={handleSubmit}>
         <TextField
-          error={fieldError?.email}
-          name="email"
-          placeholder="Email"
-          type="email"
-          icon={<Email />}
-          value={values.email}
-          onChange={(e) => handleInputChange('email', e.target.value)}
-        />
-        <TextField
-          error={fieldError?.password}
           name="password"
           placeholder="Password"
           type="password"
           icon={<Lock />}
           value={values.password}
           onChange={(e) => handleInputChange('password', e.target.value)}
+          error={fieldError?.password}
         />
-        <Link href="/forgot-password" passHref>
-          <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
-        </Link>
+        <TextField
+          name="confirm_password"
+          placeholder="Confirm Password"
+          type="password"
+          icon={<Lock />}
+          value={values.confirm_password}
+          onChange={(e) =>
+            handleInputChange('confirm_password', e.target.value)
+          }
+          error={fieldError?.confirm_password}
+        />
         <Button disabled={loading} size="large" fullWidth>
-          {loading ? <FormLoading /> : 'Sign in now!'}
+          {loading ? <FormLoading /> : 'Reset password'}
         </Button>
-
-        <FormLink>
-          Do not have an account yet?{' '}
-          <Link href="/sign-up">
-            <a>Sign Up</a>
-          </Link>
-        </FormLink>
       </form>
     </FormWrapper>
   )
 }
 
-export default FormSignIn
+export default FormReset

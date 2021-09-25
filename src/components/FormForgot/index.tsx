@@ -1,29 +1,24 @@
 import { FormEvent, useState } from 'react'
-import Link from 'next/link'
 import { signIn } from 'next-auth/client'
 import { useRouter } from 'next/router'
 
-import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
+import { Email, ErrorOutline } from '@styled-icons/material-outlined'
 
-import { FormError, FormLink, FormLoading, FormWrapper } from 'components/Form'
+import { FormError, FormLoading, FormWrapper } from 'components/Form'
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 
-import { FieldErrors, signInValidate } from 'utils/validations'
+import { FieldErrors, forgotValidate } from 'utils/validations'
 
-import * as S from './styles'
-
-const FormSignIn = () => {
+const FormForgot = () => {
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErrors>({
-    email: '',
-    password: ''
+    email: ''
   })
   const routes = useRouter()
   const { push, query } = routes
   const [values, setValues] = useState({
-    email: '',
-    password: ''
+    email: ''
   })
   const [loading, setLoading] = useState(false)
 
@@ -35,7 +30,7 @@ const FormSignIn = () => {
     event.preventDefault()
     setLoading(true)
 
-    const errors = signInValidate(values)
+    const errors = forgotValidate(values)
 
     if (Object.keys(errors).length) {
       setFieldError(errors)
@@ -48,7 +43,7 @@ const FormSignIn = () => {
     const result = await signIn('credentials', {
       ...values,
       redirect: false,
-      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
+      callbackUrl: `${window.location.origin}${query?.email || ''}`
     })
 
     if (result?.url) {
@@ -56,7 +51,7 @@ const FormSignIn = () => {
     }
 
     setLoading(false)
-    setFormError('Username or password is invalid.')
+    setFormError('Email is invalid.')
   }
 
   return (
@@ -77,31 +72,12 @@ const FormSignIn = () => {
           value={values.email}
           onChange={(e) => handleInputChange('email', e.target.value)}
         />
-        <TextField
-          error={fieldError?.password}
-          name="password"
-          placeholder="Password"
-          type="password"
-          icon={<Lock />}
-          value={values.password}
-          onChange={(e) => handleInputChange('password', e.target.value)}
-        />
-        <Link href="/forgot-password" passHref>
-          <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
-        </Link>
         <Button disabled={loading} size="large" fullWidth>
-          {loading ? <FormLoading /> : 'Sign in now!'}
+          {loading ? <FormLoading /> : 'Send email'}
         </Button>
-
-        <FormLink>
-          Do not have an account yet?{' '}
-          <Link href="/sign-up">
-            <a>Sign Up</a>
-          </Link>
-        </FormLink>
       </form>
     </FormWrapper>
   )
 }
 
-export default FormSignIn
+export default FormForgot

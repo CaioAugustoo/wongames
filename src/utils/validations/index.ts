@@ -51,3 +51,10 @@ export function signInValidate(values: SignInValues) {
 
   return getFieldErrors(schema.validate(values, { abortEarly: false }))
 }
+
+export function forgotValidate(values: Pick<SignInValues, 'email'>) {
+  const { email } = fieldsValidations
+  const schema = Joi.object({ email })
+
+  return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}

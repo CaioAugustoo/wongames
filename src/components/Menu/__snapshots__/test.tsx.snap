@@ -594,7 +594,7 @@ exports[`<Menu /> should render the menu 1`] = `
         class="c9 c10"
         href="/games"
       >
-        Library
+        Explore
       </a>
     </div>
   </div>
@@ -741,7 +741,7 @@ exports[`<Menu /> should render the menu 1`] = `
         href="/sign-in"
       >
         <span>
-          Sign In
+          Sign in
         </span>
       </a>
     </div>
@@ -780,7 +780,7 @@ exports[`<Menu /> should render the menu 1`] = `
         class="c9 c10"
         href="/games"
       >
-        Library
+        Explore
       </a>
     </div>
     <div
@@ -791,7 +791,7 @@ exports[`<Menu /> should render the menu 1`] = `
         href="/sign-in"
       >
         <span>
-          Sign In
+          Sign in
         </span>
       </a>
       <span>

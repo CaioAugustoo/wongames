@@ -32,6 +32,24 @@ export const FormError = styled.div`
   `}
 `
 
+export const FormSuccess = styled.div`
+  ${({ theme }) => css`
+    text-align: center;
+    color: ${theme.colors.black};
+    font-size: ${theme.font.sizes.small};
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 1.6rem;
+      margin-right: 0.5rem;
+      color: ${theme.colors.secondary};
+    }
+  `}
+`
+
 export const FormLoading = styled.img.attrs(() => ({
   src: '/img/dots.svg',
   alt: 'Waiting...'

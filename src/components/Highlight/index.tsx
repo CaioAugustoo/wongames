@@ -1,4 +1,6 @@
 import Button from '../Button/index'
+
+import Link from 'next/link'
 import * as S from './styles'
 
 export type HighLightProps = {
@@ -25,9 +27,9 @@ const Highlight = ({
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.Subtitle>{subtitle}</S.Subtitle>
-      <Button as="a" href={buttonLink}>
-        {buttonLabel}
-      </Button>
+      <Link href={`/game/${buttonLink}`} passHref>
+        <Button as="a">{buttonLabel}</Button>
+      </Link>
     </S.Content>
   </S.Wrapper>
 )

@@ -1,13 +1,8 @@
 import { MockedProvider } from '@apollo/client/testing'
-import { act, waitFor } from '@testing-library/react'
+import { act } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 import { useWishlist, WishlistProvider } from '.'
-import {
-  createWishlistMock,
-  updateWishlistMock,
-  wishlistItems,
-  wishlistMock
-} from './mock'
+import { createWishlistMock, wishlistItems, wishlistMock } from './mock'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useSession = jest.spyOn(require('next-auth/client'), 'useSession')

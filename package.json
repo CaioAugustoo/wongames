@@ -29,12 +29,8 @@
     ]
   },
   "dependencies": {
-    "@apollo/client": "^3.3.20",
-    "@types/lodash.xor": "^4.5.6",
-    "dotenv": "^10.0.0",
     "graphql": "^15.5.1",
     "joi": "^17.4.2",
-    "lodash.xor": "^4.5.0",
     "next": "^10.2.3",
     "next-auth": "^3.29.0",
     "next-pwa": "^5.0.0",
@@ -42,12 +38,12 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-slick": "^0.28.1",
-    "storybook-addon-next-router": "^2.0.3",
     "styled-components": "5.3.0",
     "styled-icons": "^10.32.0",
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
+    "@apollo/client": "^3.3.20",
     "@babel/core": "^7.15.5",
     "@babel/preset-typescript": "^7.12.7",
     "@storybook/addon-essentials": "6.2.4",
@@ -57,6 +53,7 @@
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.2",
+    "@types/lodash.xor": "^4.5.6",
     "@types/node": "^16.0.1",
     "@types/react": "^17.0.5",
     "@types/react-slick": "^0.23.4",
@@ -66,6 +63,7 @@
     "apollo": "^2.33.4",
     "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.12.0",
+    "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -75,10 +73,13 @@
     "jest": "^26.6.3",
     "jest-styled-components": "^7.0.4",
     "lint-staged": "^11.1.2",
+    "lodash.xor": "^4.5.0",
     "msw": "^0.35.0",
     "node-fetch": "^3.0.0",
     "plop": "^2.7.4",
     "prettier": "^2.4.1",
+    "setimmediate": "^1.0.5",
+    "storybook-addon-next-router": "^2.0.3",
     "typescript": "^4.3.5"
   }
 }

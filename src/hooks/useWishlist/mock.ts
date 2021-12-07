@@ -7,11 +7,10 @@ const gameMock = (id: string) => ({
   price: 10.5,
   developers: [{ name: 'sample developer' }],
   cover: {
-    src: '/sample-game.jpg'
+    url: 'http://localhost:1337/sample-game.jpg'
   },
   __typename: 'Game'
 })
-
 export const wishlistMock = {
   request: {
     query: QUERY_WISHLIST,
@@ -31,7 +30,6 @@ export const wishlistMock = {
     }
   }
 }
-
 export const wishlistItems = [
   {
     id: '1',

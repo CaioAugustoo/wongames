@@ -7,6 +7,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import { CartProvider } from 'hooks/useCart'
+import { WishlistProvider } from 'hooks/useWishlist'
 
 import { ThemeProvider } from 'styled-components'
 
@@ -14,7 +15,6 @@ import NextNprogress from 'nextjs-progressbar'
 
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
-import { WishlistProvider } from 'hooks/useWishlist'
 
 function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)

@@ -63,9 +63,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
     }
   })
 
-  const total = data?.games.reduce((acc, game) => {
-    return acc + game.price
-  }, 0)
+  const total = data?.games.reduce((acc, game) => acc + game.price, 0)
 
   const isInCart = (id: string) => (id ? cartItems.includes(id) : false)
 

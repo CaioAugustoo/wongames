@@ -31,6 +31,10 @@ exports[`<Empty /> should render correctly 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
+.c4:focus {
+  outline: 1px dashed;
+}
+
 .c4:hover {
   background: #2499ae;
 }

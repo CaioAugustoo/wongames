@@ -31,6 +31,10 @@ exports[`<Highlight /> should render headings and buttons 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
+.c5:focus {
+  outline: 1px dashed;
+}
+
 .c5:hover {
   background: #2499ae;
 }

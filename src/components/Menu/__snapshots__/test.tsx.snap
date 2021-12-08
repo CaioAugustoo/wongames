@@ -37,6 +37,10 @@ exports[`<Menu /> should render the menu 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
+.c28:focus {
+  outline: 1px dashed;
+}
+
 .c28:hover {
   background: #2499ae;
 }
@@ -70,6 +74,10 @@ exports[`<Menu /> should render the menu 1`] = `
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
   width: 100%;
+}
+
+.c34:focus {
+  outline: 1px dashed;
 }
 
 .c34:hover {

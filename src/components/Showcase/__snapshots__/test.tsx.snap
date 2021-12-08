@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Showcase /> should render full showcase 1`] = `
-.c24 {
+.c22 {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
@@ -37,11 +37,66 @@ exports[`<Showcase /> should render full showcase 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
+.c10:focus {
+  outline: 1px dashed;
+}
+
 .c10:hover {
   background: #2499ae;
 }
 
-.c23 {
+.c21 {
+  background: #47c8ff;
+  color: #FAFAFA;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  outline: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  height: 3rem;
+  font-size: 1.2rem;
+  background: none;
+  color: #2499ae;
+}
+
+.c21:focus {
+  outline: 1px dashed;
+}
+
+.c21:hover {
+  background: none;
+}
+
+.c21 svg {
+  width: 1.5rem;
+}
+
+.c21 svg + span {
+  margin-left: 0.8rem;
+}
+
+.c21:hover {
+  color: #1b7484;
+}
+
+.c26 {
   background: #47c8ff;
   color: #FAFAFA;
   border: none;
@@ -70,15 +125,19 @@ exports[`<Showcase /> should render full showcase 1`] = `
   font-size: 1.2rem;
 }
 
-.c23:hover {
+.c26:focus {
+  outline: 1px dashed;
+}
+
+.c26:hover {
   background: #2499ae;
 }
 
-.c23 svg {
+.c26 svg {
   width: 1.5rem;
 }
 
-.c23 svg + span {
+.c26 svg + span {
   margin-left: 0.8rem;
 }
 
@@ -149,6 +208,18 @@ exports[`<Showcase /> should render full showcase 1`] = `
 }
 
 .c20 {
+  color: #2499ae;
+  position: absolute;
+  right: -1rem;
+  top: -0.5rem;
+  cursor: pointer;
+}
+
+.c20 svg {
+  width: 2.5rem;
+}
+
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -164,7 +235,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
   margin-top: 0.8rem;
 }
 
-.c21 {
+.c24 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -181,7 +252,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
   margin-right: 0.8rem;
 }
 
-.c22 {
+.c25 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -578,23 +649,48 @@ exports[`<Showcase /> should render full showcase 1`] = `
                     <div
                       class="c20"
                     >
-                      <div
+                      <button
                         class="c21"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          aria-label="Add to Wishlist"
+                          class="c22"
+                          fill="currentColor"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h24v24H0V0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="c23"
+                    >
+                      <div
+                        class="c24"
                       >
                         $235.00
                       </div>
                       <div
-                        class="c22"
+                        class="c25"
                       >
                         $215.00
                       </div>
                       <button
-                        class="c23"
+                        class="c26"
                       >
                         <svg
                           aria-hidden="true"
                           aria-label="Add to cart"
-                          class="c24"
+                          class="c22"
                           fill="currentColor"
                           focusable="false"
                           viewBox="0 0 24 24"

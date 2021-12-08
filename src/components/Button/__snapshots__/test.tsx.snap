@@ -31,6 +31,10 @@ exports[`<Button /> should render the medium size by default 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
+.c0:focus {
+  outline: 1px dashed;
+}
+
 .c0:hover {
   background: #2499ae;
 }

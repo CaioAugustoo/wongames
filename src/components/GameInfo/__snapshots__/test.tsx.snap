@@ -37,6 +37,10 @@ exports[`<GameInfo /> should render game informations 1`] = `
   padding: 0.8rem 4.8rem;
 }
 
+.c6:focus {
+  outline: 1px dashed;
+}
+
 .c6:hover {
   background: #2499ae;
 }
@@ -79,6 +83,10 @@ exports[`<GameInfo /> should render game informations 1`] = `
   padding: 0.8rem 4.8rem;
   background: none;
   color: #2499ae;
+}
+
+.c8:focus {
+  outline: 1px dashed;
 }
 
 .c8:hover {
@@ -285,6 +293,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
     >
       <svg
         aria-hidden="true"
+        aria-label="Add to Wishlist"
         class="c7"
         fill="currentColor"
         focusable="false"
@@ -300,7 +309,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
         />
       </svg>
       <span>
-        Wishlist
+        Add to Wishlist
       </span>
     </button>
   </div>

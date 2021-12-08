@@ -73,6 +73,10 @@ exports[`<BannerSlide /> should render vertical slider 1`] = `
   padding: 0.8rem 4.8rem;
 }
 
+.c10:focus {
+  outline: 1px dashed;
+}
+
 .c10:hover {
   background: #2499ae;
 }

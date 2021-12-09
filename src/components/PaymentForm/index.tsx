@@ -37,6 +37,8 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   useEffect(() => {
     if (!items.length) return
 
+    setFreeGames(false)
+
     const setPaymentMode = async () => {
       const data = await createPaymentIntent({
         items,

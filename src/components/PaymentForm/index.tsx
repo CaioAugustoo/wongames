@@ -19,9 +19,11 @@ const cardStyle = {
 }
 
 const PaymentForm = () => {
+  const [disabled, setDisabled] = useState(true)
   const [error, setError] = useState<string | undefined>()
 
   const handleChange = async (event: StripeCardElementChangeEvent) => {
+    setDisabled(event.empty)
     setError(event?.error?.message)
   }
 
@@ -55,7 +57,11 @@ const PaymentForm = () => {
           </Button>
         </Link>
 
-        <Button fullWidth icon={<ShoppingCart />}>
+        <Button
+          fullWidth
+          icon={<ShoppingCart />}
+          disabled={disabled || !!error}
+        >
           Buy now
         </Button>
       </S.Footer>

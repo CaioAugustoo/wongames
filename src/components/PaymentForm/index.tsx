@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CardElement } from '@stripe/react-stripe-js'
 
 import Button from 'components/Button'
 import Heading from 'components/Heading'
@@ -14,6 +15,8 @@ const PaymentForm = () => {
         <Heading color="black" size="small" lineBottom>
           Payment
         </Heading>
+
+        <CardElement options={{ hidePostalCode: true }} />
       </S.Body>
 
       <S.Footer>

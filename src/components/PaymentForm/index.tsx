@@ -12,6 +12,12 @@ import { ErrorOutline, ShoppingCart } from 'styled-icons/material-outlined'
 
 import * as S from './styles'
 
+const cardStyle = {
+  base: {
+    fontSize: '16px'
+  }
+}
+
 const PaymentForm = () => {
   const [error, setError] = useState<string | undefined>()
 
@@ -27,13 +33,16 @@ const PaymentForm = () => {
         </Heading>
 
         <CardElement
-          options={{ hidePostalCode: true }}
+          options={{
+            hidePostalCode: true,
+            style: cardStyle
+          }}
           onChange={handleChange}
         />
 
         {error && (
           <S.Error>
-            <ErrorOutline size={15} />
+            <ErrorOutline size={20} />
             {error}
           </S.Error>
         )}

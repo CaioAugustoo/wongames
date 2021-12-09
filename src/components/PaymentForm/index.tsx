@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Link from 'next/link'
+import { Session } from 'next-auth'
 
 import { CardElement } from '@stripe/react-stripe-js'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
@@ -8,9 +9,17 @@ import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 
+import { useCart } from 'hooks/useCart'
+
 import { ErrorOutline, ShoppingCart } from 'styled-icons/material-outlined'
 
+import { createPaymentIntent } from 'utils/stripe/methods'
+
 import * as S from './styles'
+
+export type PaymentFormProps = {
+  session: Session
+}
 
 const cardStyle = {
   base: {
@@ -18,9 +27,36 @@ const cardStyle = {
   }
 }
 
-const PaymentForm = () => {
+const PaymentForm = ({ session }: PaymentFormProps) => {
+  const { items } = useCart()
   const [disabled, setDisabled] = useState(true)
   const [error, setError] = useState<string | undefined>()
+  const [clientSecret, setClientSecret] = useState('')
+  const [freeGames, setFreeGames] = useState(false)
+
+  useEffect(() => {
+    if (!items.length) return
+
+    const setPaymentMode = async () => {
+      const data = await createPaymentIntent({
+        items,
+        token: session.jwt as string
+      })
+
+      if (data?.freeGames) {
+        setFreeGames(true)
+        return
+      }
+
+      if (data?.error) {
+        setError(data?.error)
+        return
+      }
+
+      setClientSecret(data.client_secret)
+    }
+    setPaymentMode()
+  }, [items, session])
 
   const handleChange = async (event: StripeCardElementChangeEvent) => {
     setDisabled(event.empty)
@@ -29,26 +65,28 @@ const PaymentForm = () => {
 
   return (
     <S.Wrapper>
-      <S.Body>
-        <Heading color="black" size="small" lineBottom>
-          Payment
-        </Heading>
+      {!freeGames && (
+        <S.Body>
+          <Heading color="black" size="small" lineBottom>
+            Payment
+          </Heading>
 
-        <CardElement
-          options={{
-            hidePostalCode: true,
-            style: cardStyle
-          }}
-          onChange={handleChange}
-        />
+          <CardElement
+            options={{
+              hidePostalCode: true,
+              style: cardStyle
+            }}
+            onChange={handleChange}
+          />
 
-        {error && (
-          <S.Error>
-            <ErrorOutline size={20} />
-            {error}
-          </S.Error>
-        )}
-      </S.Body>
+          {error && (
+            <S.Error>
+              <ErrorOutline size={20} />
+              {error}
+            </S.Error>
+          )}
+        </S.Body>
+      )}
 
       <S.Footer>
         <Link href="/games" passHref>

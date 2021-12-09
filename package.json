@@ -29,6 +29,8 @@
     ]
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/stripe-js": "^1.21.2",
     "graphql": "^15.5.1",
     "joi": "^17.4.2",
     "next": "^10.2.3",

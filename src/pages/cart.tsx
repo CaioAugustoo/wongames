@@ -2,8 +2,6 @@ import { GetServerSidePropsContext } from 'next'
 
 import Cart, { CartProps } from 'templates/Cart'
 
-import cardsMock from 'components/PaymentOptions/mock'
-
 import { initializeApollo } from 'utils/apollo'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
 import protectedRoutes from 'utils/protectedRoutes'
@@ -32,8 +30,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       recommendedHighLight: highlightMapper(
         data.recommended?.section?.highlight
       ),
-      cartTitle: data.recommended?.section?.title,
-      cards: cardsMock
+      cartTitle: data.recommended?.section?.title
     }
   }
 }

@@ -12,7 +12,6 @@ describe('<ProfileMenu />', () => {
       screen.getByRole('link', { name: /My profile/i })
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('link', { name: /My cards/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /My orders/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Log out/i })).toBeInTheDocument()
 
@@ -20,9 +19,9 @@ describe('<ProfileMenu />', () => {
   })
 
   it('should render the menu with an active link defined', () => {
-    renderWithTheme(<ProfileMenu activeLink="/profile/cards" />)
+    renderWithTheme(<ProfileMenu activeLink="/profile/orders" />)
 
-    expect(screen.getByRole('link', { name: /My cards/i })).toHaveStyle({
+    expect(screen.getByRole('link', { name: /My orders/i })).toHaveStyle({
       background: theme.colors.secondary,
       color: theme.colors.white
     })

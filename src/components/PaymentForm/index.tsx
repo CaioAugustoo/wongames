@@ -65,28 +65,32 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
   return (
     <S.Wrapper>
-      {!freeGames && (
-        <S.Body>
-          <Heading color="black" size="small" lineBottom>
-            Payment
-          </Heading>
+      <S.Body>
+        <Heading color="black" size="small" lineBottom>
+          Payment
+        </Heading>
 
-          <CardElement
-            options={{
-              hidePostalCode: true,
-              style: cardStyle
-            }}
-            onChange={handleChange}
-          />
+        {freeGames ? (
+          <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
+        ) : (
+          <>
+            <CardElement
+              options={{
+                hidePostalCode: true,
+                style: cardStyle
+              }}
+              onChange={handleChange}
+            />
 
-          {error && (
-            <S.Error>
-              <ErrorOutline size={20} />
-              {error}
-            </S.Error>
-          )}
-        </S.Body>
-      )}
+            {error && (
+              <S.Error>
+                <ErrorOutline size={20} />
+                {error}
+              </S.Error>
+            )}
+          </>
+        )}
+      </S.Body>
 
       <S.Footer>
         <Link href="/games" passHref>
@@ -98,7 +102,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         <Button
           fullWidth
           icon={<ShoppingCart />}
-          disabled={disabled || !!error}
+          disabled={!freeGames && (disabled || !!error)}
         >
           Buy now
         </Button>

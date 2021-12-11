@@ -164,7 +164,7 @@ describe('cartMapper()', () => {
             ],
             slug: 'game',
             cover: {
-              url: '/image.jpg'
+              url: 'http://localhost:1337/image.jpg'
             },
             price: 10
           }
@@ -214,7 +214,7 @@ describe('cartMapper()', () => {
             ],
             slug: 'game',
             cover: {
-              url: '/image.jpg'
+              url: 'http://localhost:1337/image.jpg'
             },
             price: 0
           }

@@ -3,7 +3,7 @@ import media from 'styled-media-query'
 
 import { HighLightProps } from '.'
 
-type WrapperProps = Pick<HighLightProps, 'backgroundImage' | 'alignment'>
+type WrapperProps = Pick<HighLightProps, 'alignment'>
 
 const wrapperModifiers = {
   right: () => css`
@@ -20,20 +20,23 @@ const wrapperModifiers = {
       text-align: left;
     }
 
-    ${FloatImage} {
+    ${FloatImageWrapper} {
       justify-self: end;
     }
   `
 }
 
 export const Wrapper = styled.section<WrapperProps>`
-  ${({ backgroundImage, alignment }) => css`
+  ${({ alignment }) => css`
     position: relative;
     height: 23rem;
     display: grid;
-    background-image: url(${backgroundImage});
-    background-position: center center;
-    background-size: cover;
+    margin: 2rem 0;
+
+    img {
+      position: absolute;
+      object-fit: cover;
+    }
 
     &::after {
       content: '';
@@ -50,7 +53,7 @@ export const Wrapper = styled.section<WrapperProps>`
     ${wrapperModifiers[alignment!]()}
   `}
 `
-export const FloatImage = styled.img`
+export const FloatImageWrapper = styled.div`
   ${({ theme }) => css`
     grid-area: floatimage;
     z-index: ${theme.layers.base};

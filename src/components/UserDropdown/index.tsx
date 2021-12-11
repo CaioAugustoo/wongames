@@ -7,6 +7,7 @@ import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 
 import Link from 'next/link'
 import { signOut } from 'next-auth/client'
+import { useRouter } from 'next/router'
 
 import Dropdown from 'components/Dropdown'
 
@@ -17,6 +18,8 @@ export type UserDropdownProps = {
 }
 
 const UserDropdown = ({ username }: UserDropdownProps) => {
+  const { push } = useRouter()
+
   return (
     <Dropdown
       title={
@@ -41,7 +44,14 @@ const UserDropdown = ({ username }: UserDropdownProps) => {
           </S.Link>
         </Link>
 
-        <S.Link title="Log out" role="button" onClick={() => signOut()}>
+        <S.Link
+          title="Log out"
+          role="button"
+          onClick={async () => {
+            const data = await signOut({ redirect: false, callbackUrl: '/' })
+            push(data.url)
+          }}
+        >
           <ExitToApp />
           <span>Log out</span>
         </S.Link>

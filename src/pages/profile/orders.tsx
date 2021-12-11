@@ -1,9 +1,19 @@
+import { GetServerSidePropsContext } from 'next'
+
 import Profile from 'templates/Profile'
 
-import ordersMock from 'components/OrderList/mock'
 import OrderList, { OrderListProps } from 'components/OrderList'
-import { GetServerSidePropsContext } from 'next'
+
+import {
+  QueryOrders,
+  QueryOrdersVariables
+} from 'graphql/generated/QueryOrders'
+import { QUERY_ORDERS } from 'graphql/queries/orders'
+
 import protectedRoutes from 'utils/protectedRoutes'
+import { initializeApollo } from 'utils/apollo'
+
+import { ordersMapper } from 'utils/mappers'
 
 const Orders = ({ items }: OrderListProps) => {
   return (
@@ -17,10 +27,18 @@ export default Orders
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await protectedRoutes(context)
+  const apolloClient = initializeApollo(null, session)
+
+  const { data } = await apolloClient.query<QueryOrders, QueryOrdersVariables>({
+    query: QUERY_ORDERS,
+    variables: {
+      identifier: session?.id as string
+    }
+  })
 
   return {
     props: {
-      items: ordersMock,
+      items: ordersMapper(data.orders),
       session
     }
   }

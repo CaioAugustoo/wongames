@@ -58,7 +58,7 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
   return games
     ? games.map((game) => ({
         id: game.id,
-        img: game?.cover?.url,
+        img: game?.cover?.url ?? 'img/img_game_fallback.png',
         title: game.name,
         price: formatPrice(game.price)
       }))
@@ -82,7 +82,7 @@ export const ordersMapper = (orders: QueryOrders_orders[]) => {
           title: game.name,
           downloadLink:
             'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
-          img: `http://localhost:1337${game.cover?.url}`,
+          img: game.cover?.url ?? 'img/img_game_fallback.png',
           price: formatPrice(game.price)
         }))
       }))

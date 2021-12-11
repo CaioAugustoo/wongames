@@ -47,9 +47,6 @@ exports[`<Banner /> should render correctly 1`] = `
   width: 100%;
   height: 23rem;
   background-color: #EAEAEA;
-  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
-  background-position: center center;
-  background-size: cover;
 }
 
 .c2 {
@@ -124,11 +121,15 @@ exports[`<Banner /> should render correctly 1`] = `
   class="c0"
 >
   <div
-    aria-label="Defy death"
     class="c1"
-    role="img"
-    src="https://source.unsplash.com/user/willianjusten/1042x580"
-  />
+  >
+    <img
+      alt="Defy death"
+      aria-label="Defy death"
+      layout="fill"
+      src="https://source.unsplash.com/user/willianjusten/1042x580"
+    />
+  </div>
   <div
     class="c2"
   >

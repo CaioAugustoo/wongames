@@ -26,6 +26,7 @@ export const QUERY_GAME_BY_SLUG = gql`
       short_description
       description
       rating
+      slug
       release_date
       gallery {
         src: url

@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo'
+
 import Base from 'templates/Base'
 
 import { GameCardProps } from 'components/GameCard'
@@ -12,6 +14,7 @@ import * as S from './styles'
 
 export type GameTemplateProps = {
   id: string
+  slug: string
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]
@@ -30,9 +33,26 @@ const Game = ({
   description,
   details,
   recommendedGames,
-  recommendedTitle
+  recommendedTitle,
+  slug
 }: GameTemplateProps) => (
   <Base>
+    <NextSeo
+      title={`${gameInfo.title} - Won Games`}
+      description={gameInfo.description}
+      canonical={`https://wongames.caioaugusto.dev/game/${slug}`}
+      openGraph={{
+        url: `https://wongames.caioaugusto.dev/game/${slug}`,
+        title: `${gameInfo.title} - Won Games`,
+        description: gameInfo.description,
+        images: [
+          {
+            url: cover,
+            alt: `${gameInfo.title}`
+          }
+        ]
+      }}
+    />
     <S.Cover src={cover} role="img" aria-label="cover" />
 
     <S.Main>

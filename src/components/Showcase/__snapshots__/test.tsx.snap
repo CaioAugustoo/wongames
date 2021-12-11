@@ -432,10 +432,13 @@ exports[`<Showcase /> should render full showcase 1`] = `
   position: relative;
   height: 23rem;
   display: grid;
-  background-image: url(/img/red-dead-img.jpg);
-  background-position: center center;
-  background-size: cover;
+  margin: 2rem 0;
   grid-template-areas: 'floatimage content';
+}
+
+.c5 img {
+  position: absolute;
+  object-fit: cover;
 }
 
 .c5::after {
@@ -562,6 +565,11 @@ exports[`<Showcase /> should render full showcase 1`] = `
   <section
     class="c4 c5"
   >
+    <img
+      alt="Read Dead is back! background"
+      layout="fill"
+      src="/img/red-dead-img.jpg"
+    />
     <div
       class="c6 c7"
     >
@@ -577,7 +585,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
       </h3>
       <a
         class="c10"
-        href="/game//games/rdr2"
+        href="/game/games/rdr2"
       >
         <span>
           Buy now
@@ -681,11 +689,11 @@ exports[`<Showcase /> should render full showcase 1`] = `
                         $215.00
                       </div>
                       <button
+                        aria-label="Add to cart"
                         class="c26"
                       >
                         <svg
                           aria-hidden="true"
-                          aria-label="Add to cart"
                           class="c22"
                           fill="currentColor"
                           focusable="false"

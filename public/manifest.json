@@ -13,9 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "background_color": "#06092B",
-  "description": "Won Games | Your games ecommerce!",
+  "background_color": "#03040D",
+  "description": "The best Game Store in the world!",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#06092B"
+  "theme_color": "#03040D"
 }

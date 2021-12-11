@@ -74,13 +74,7 @@ exports[`<Banner /> should render correctly 1`] = `
 }
 
 @media (max-width:1170px) {
-  .c0 .sc-bdnxRM {
-    right: 0;
-  }
 
-  .c0 .sc-bdnxRM::before {
-    display: none;
-  }
 }
 
 @media (min-width:768px) {
@@ -151,7 +145,7 @@ exports[`<Banner /> should render correctly 1`] = `
     </h3>
     <a
       class="c5"
-      href="/game//games/defy-death"
+      href="/game/games/defy-death"
     >
       <span>
         Buy now

@@ -7,7 +7,7 @@ exports[`<Menu /> should render the menu 1`] = `
   overflow: hidden;
 }
 
-.c28 {
+.c27 {
   background: #47c8ff;
   color: #FAFAFA;
   border: none;
@@ -37,15 +37,15 @@ exports[`<Menu /> should render the menu 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
-.c28:focus {
+.c27:focus {
   outline: 1px dashed;
 }
 
-.c28:hover {
+.c27:hover {
   background: #2499ae;
 }
 
-.c34 {
+.c33 {
   background: #47c8ff;
   color: #FAFAFA;
   border: none;
@@ -76,11 +76,11 @@ exports[`<Menu /> should render the menu 1`] = `
   width: 100%;
 }
 
-.c34:focus {
+.c33:focus {
   outline: 1px dashed;
 }
 
-.c34:hover {
+.c33:hover {
   background: #2499ae;
 }
 
@@ -166,7 +166,7 @@ exports[`<Menu /> should render the menu 1`] = `
   animation: hoverAnimation 0.2s forwards;
 }
 
-.c31 {
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -193,7 +193,7 @@ exports[`<Menu /> should render the menu 1`] = `
   pointer-events: none;
 }
 
-.c31 > svg {
+.c30 > svg {
   position: absolute;
   top: 0;
   right: 0;
@@ -203,7 +203,7 @@ exports[`<Menu /> should render the menu 1`] = `
   height: 2.4rem;
 }
 
-.c31 .c7 {
+.c30 .c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -224,7 +224,7 @@ exports[`<Menu /> should render the menu 1`] = `
   flex-direction: column;
 }
 
-.c31 .c9 {
+.c30 .c9 {
   color: #030517;
   font-weight: 600;
   font-size: 2.0rem;
@@ -237,7 +237,7 @@ exports[`<Menu /> should render the menu 1`] = `
   transition: transform 0.3s ease-in-out;
 }
 
-.c31 .c32 {
+.c30 .c31 {
   -webkit-transform: translateY(3rem);
   -ms-transform: translateY(3rem);
   transform: translateY(3rem);
@@ -246,7 +246,7 @@ exports[`<Menu /> should render the menu 1`] = `
   transition: transform 0.3s ease-in-out;
 }
 
-.c33 {
+.c32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -261,13 +261,13 @@ exports[`<Menu /> should render the menu 1`] = `
   padding: 0 4.8rem 4.8rem;
 }
 
-.c33 > span {
+.c32 > span {
   display: block;
   margin: 0.8rem 0;
   font-size: 1.2rem;
 }
 
-.c35 {
+.c34 {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: #2499ae;
@@ -282,7 +282,7 @@ exports[`<Menu /> should render the menu 1`] = `
 }
 
 .c13 .c16,
-.c13 .c29 {
+.c13 .c28 {
   -webkit-transition: -webkit-transform 0.2s ease-in,opacity 0.3s ease-in-out;
   -webkit-transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
   transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
@@ -335,7 +335,7 @@ exports[`<Menu /> should render the menu 1`] = `
   right: 2.4rem;
 }
 
-.c30 {
+.c29 {
   background: rgba(0,0,0,0.5);
   position: fixed;
   top: 0;
@@ -368,16 +368,16 @@ exports[`<Menu /> should render the menu 1`] = `
   text-align: center;
 }
 
-.c23 {
+.c22 {
   max-width: 100%;
 }
 
-.c25 {
+.c24 {
   color: #47C8FF;
   font-size: 2.8rem;
 }
 
-.c27 {
+.c26 {
   color: #FAFAFA;
   font-size: 1.8rem;
   font-weight: 300;
@@ -403,15 +403,11 @@ exports[`<Menu /> should render the menu 1`] = `
   padding-bottom: 3.2rem;
 }
 
-.c19 .c22 {
-  max-width: 20rem;
-}
-
-.c19 .c24 {
+.c19 .c23 {
   font-size: 1.8rem;
 }
 
-.c19 .c26 {
+.c19 .c25 {
   color: #030517;
   font-size: 1.6rem;
 }
@@ -679,22 +675,22 @@ exports[`<Menu /> should render the menu 1`] = `
                 >
                   <img
                     alt="A gamer playing video games on the couch"
-                    class="c22 c23"
+                    class="c22"
                     role="img"
                     src="/img/empty.svg"
                   />
                   <h2
-                    class="c24 c25"
+                    class="c23 c24"
                   >
                     Your cart is empty
                   </h2>
                   <p
-                    class="c26 c27"
+                    class="c25 c26"
                   >
                     Go back to the store and explore great games and offers.
                   </p>
                   <a
-                    class="c28"
+                    class="c27"
                     href="/"
                   >
                     <span>
@@ -706,7 +702,7 @@ exports[`<Menu /> should render the menu 1`] = `
             </div>
             <div
               aria-hidden="true"
-              class="c29 c30"
+              class="c28 c29"
             />
           </div>
         </main>
@@ -745,7 +741,7 @@ exports[`<Menu /> should render the menu 1`] = `
       class="c6"
     >
       <a
-        class="c28"
+        class="c27"
         href="/sign-in"
       >
         <span>
@@ -756,7 +752,7 @@ exports[`<Menu /> should render the menu 1`] = `
   </div>
   <nav
     aria-hidden="true"
-    class="c31"
+    class="c30"
   >
     <svg
       aria-hidden="true"
@@ -792,10 +788,10 @@ exports[`<Menu /> should render the menu 1`] = `
       </a>
     </div>
     <div
-      class="c32 c33"
+      class="c31 c32"
     >
       <a
-        class="c34"
+        class="c33"
         href="/sign-in"
       >
         <span>
@@ -806,7 +802,7 @@ exports[`<Menu /> should render the menu 1`] = `
         or
       </span>
       <a
-        class="c35"
+        class="c34"
         href="/sign-up"
         title="Sign Up"
       >

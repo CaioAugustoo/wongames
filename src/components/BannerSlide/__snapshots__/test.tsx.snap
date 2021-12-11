@@ -407,7 +407,7 @@ exports[`<BannerSlide /> should render vertical slider 1`] = `
                   </h3>
                   <a
                     class="c10"
-                    href="/game//games/defy-death"
+                    href="/game/games/defy-death"
                   >
                     <span>
                       Buy now
@@ -459,7 +459,7 @@ exports[`<BannerSlide /> should render vertical slider 1`] = `
                   </h3>
                   <a
                     class="c10"
-                    href="/game//games/defy-death"
+                    href="/game/games/defy-death"
                   >
                     <span>
                       Buy now

@@ -39,8 +39,6 @@ const FormProfile = ({ username, email }: FormProfileProps) => {
               Reset password
             </Button>
           </Link>
-
-          <Button size="medium">Save</Button>
         </S.ButtonContainer>
       </S.Form>
     </S.Wrapper>

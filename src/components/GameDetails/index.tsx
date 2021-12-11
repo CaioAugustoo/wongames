@@ -1,4 +1,5 @@
 import { Apple, Windows, Linux } from 'styled-icons/fa-brands'
+import { formatDate } from 'utils/formatters/date'
 
 import Heading from '../Heading'
 import MediaMatch from '../MediaMatch'
@@ -46,13 +47,7 @@ const GameDetails = ({
 
         <S.Block>
           <S.Label>Release Date</S.Label>
-          <S.Description>
-            {new Intl.DateTimeFormat('en-US', {
-              day: 'numeric',
-              month: 'short',
-              year: 'numeric'
-            }).format(new Date(releaseDate))}
-          </S.Description>
+          <S.Description>{formatDate(releaseDate)}</S.Description>
         </S.Block>
 
         <S.Block>

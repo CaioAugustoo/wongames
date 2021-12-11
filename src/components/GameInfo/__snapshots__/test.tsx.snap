@@ -134,6 +134,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
   align-items: center;
   font-weight: 600;
   color: #FAFAFA;
+  z-index: 10;
   background-color: #2499ae;
   font-size: 1.4rem;
   height: 3.6rem;

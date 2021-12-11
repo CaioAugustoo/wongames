@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next-auth/internals/utils'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 

@@ -3,6 +3,9 @@ import { useApollo } from 'utils/apollo'
 
 import { Provider as AuthProvider } from 'next-auth/client'
 
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
+
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
@@ -35,6 +38,7 @@ function App({ Component, pageProps }: AppProps) {
                   content="The best Game Store in the world!"
                 />
               </Head>
+              <DefaultSeo {...SEO} />
               <GlobalStyles />
               <NextNprogress
                 color="#47C8FF"

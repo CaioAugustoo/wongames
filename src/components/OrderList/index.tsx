@@ -1,6 +1,7 @@
 import Empty from 'components/Empty'
 import GameItem, { GameItemProps, PaymentInfoProps } from 'components/GameItem'
 import Heading from 'components/Heading'
+
 import * as S from './styles'
 
 export type OrderListProps = {
@@ -8,6 +9,12 @@ export type OrderListProps = {
     paymentInfo?: PaymentInfoProps
     games: GameItemProps[]
   }>
+}
+
+function sortOrdersByPurschasedDate(firstValue, secondValue) {
+  return new Date(firstValue.created_at) > new Date(secondValue.created_at)
+    ? 1
+    : -1
 }
 
 const OrderList = ({ items }: OrderListProps) => {
@@ -18,11 +25,17 @@ const OrderList = ({ items }: OrderListProps) => {
       </Heading>
 
       {items?.length ? (
-        items?.map((order) =>
-          order?.games?.map((item) => (
-            <GameItem key={item.id} {...item} paymentInfo={order.paymentInfo} />
-          ))
-        )
+        items
+          ?.map((order) =>
+            order?.games?.map((item) => (
+              <GameItem
+                key={item.id}
+                {...item}
+                paymentInfo={order.paymentInfo}
+              />
+            ))
+          )
+          .sort(sortOrdersByPurschasedDate)
       ) : (
         <Empty
           title="You haven't made a purchase yet."

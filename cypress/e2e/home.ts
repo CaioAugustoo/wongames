@@ -8,17 +8,16 @@ describe('Home Page', () => {
     cy.shouldRenderShowcase({
       name: "News"
     })
-
     cy.shouldRenderShowcase({
-      name: "Most popular"
+      name: "Most popular",
+      highlight: true,
     })
-
     cy.shouldRenderShowcase({
-      name: "Recommended for you"
+      name: "Recommended for you",
     })
-
     cy.shouldRenderShowcase({
-      name: "Free to play"
+      name: "Free to play",
+      highlight: true,
     })
   })
 })

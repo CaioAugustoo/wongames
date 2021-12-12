@@ -1,5 +1,10 @@
 /// <reference types="cypress" />
 
+type ShowcaseAttributes = {
+  name: string
+  highlight?: boolean
+}
+
 declare namespace Cypress {
   interface Chainable {
     /**
@@ -11,6 +16,11 @@ declare namespace Cypress {
      * Custom comand to render banner
      * @example cy.shouldRenderBanner()
      */
-    shouldRenderBanner(): void
+    shouldRenderBanner(): void,
+    /**
+     * Custom comand to render showcase
+     * @example cy.shouldRenderShowcase()
+     */
+     shouldRenderShowcase(attrs: ShowcaseAttributes): void
   }
 }

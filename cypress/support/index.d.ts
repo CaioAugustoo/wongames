@@ -6,6 +6,11 @@ declare namespace Cypress {
      * Custom comand to visit Google Page
      * @example cy.google()
      */
-    google(): Chainable<Window>
+    google(): Chainable<Window>,
+    /**
+     * Custom comand to render banner
+     * @example cy.shouldRenderBanner()
+     */
+    shouldRenderBanner(): void
   }
 }

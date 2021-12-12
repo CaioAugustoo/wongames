@@ -23,5 +23,32 @@ describe('Game Page', () => {
     })
 
     cy.getByDataCy("content").children().should("have.length.at", 2)
+
+    // details
+    cy.getByDataCy("game-details").within(() => {
+      cy.findByRole("heading", { name: "Game details" }).should("exist")
+
+      cy.findByRole("heading", { name: "Developer" }).should("exist")
+
+      cy.findByRole("heading", { name: "Release Date" }).should("exist")
+      cy.findByText(/Dec 8, 2020/i)
+
+      cy.findByRole("heading", { name: "Platforms" }).should("exist")
+      cy.findByTitle(/Windows/i)
+
+      cy.findByRole("heading", { name: "Publisher" }).should("exist")
+      cy.findAllByText(/CD PROJEKT RED/i).should("have.length.at", 1)
+
+      cy.findByRole("heading", { name: "Rating" }).should("exist")
+      cy.findByText(/FREE/i)
+
+      cy.findByRole("heading", { name: "Genres" }).should("exist")
+      cy.findByText("Action / Role-playing / Sci-fi")
+    })
+
+    // showcase
+    cy.shouldRenderShowcase({
+      name: "Recommended for you"
+    })
   })
 })

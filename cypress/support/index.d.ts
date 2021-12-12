@@ -16,7 +16,7 @@ declare namespace Cypress {
      * Custom comand to get by data-cy value
      * @example cy.getByDataCy('selector')
      */
-     getByDataCy(selector: string): Chainable<JQuery<HTMLElement>>,
+    getByDataCy(selector: string): Chainable<JQuery<HTMLElement>>,
     /**
      * Custom comand to render banner
      * @example cy.shouldRenderBanner()
@@ -26,6 +26,6 @@ declare namespace Cypress {
      * Custom comand to render showcase
      * @example cy.shouldRenderShowcase()
      */
-     shouldRenderShowcase(attrs: ShowcaseAttributes): void
+    shouldRenderShowcase(attrs: ShowcaseAttributes): void
   }
 }

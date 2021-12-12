@@ -69,5 +69,7 @@ Cypress.Commands.add("shouldRenderShowcase", ({name, highlight = false}) => {
         cy.findByRole("link", { name: "Buy now" }).should("have.attr", "href")
       })
     }
+
+    cy.get('[data-cy="game-card"]').should("have.length.gt", 3)
   })
 })

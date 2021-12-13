@@ -61,6 +61,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
             filterItems
           })}
         />
+
         <section>
           {data.games.length ? (
             <>
@@ -72,7 +73,9 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                     title={game.name}
                     slug={game.slug}
                     developer={game.developers[0].name}
-                    img={String(game.cover?.url)}
+                    img={String(
+                      game.cover?.url ?? '/img/img_game_fallback.png'
+                    )}
                     price={game.price}
                   />
                 ))}

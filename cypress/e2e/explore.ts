@@ -45,4 +45,14 @@ describe('Explore Page', () => {
     cy.findByRole("button", { name: /show more/i}).click()
     cy.getByDataCy("game-card").should("have.length", 30)
   })
+
+  it("should filter lowest to highest price games and vice versa", () => {
+    cy.findByLabelText("Lowest to highest").click()
+    cy.url().should('include', '/games?sort=price%3Aasc')
+    cy.getByDataCy("game-card").should("have.length", 15).first().findByText("Free")
+
+    cy.findByLabelText("Highest to lowest").click()
+    cy.url().should('include', '/games?sort=price%3Adesc')
+    cy.getByDataCy("game-card").should("have.length", 15).first().findByText("$536.29")
+  })
 })

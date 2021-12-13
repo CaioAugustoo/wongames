@@ -59,26 +59,55 @@ describe('Explore Page', () => {
   it("should filter games by price", () => {
     cy.findByLabelText("Free").click()
     cy.url().should('include', '/games?sort=price%3Adesc&price_lte=0')
+    cy.wait(500)
     cy.getByDataCy("game-card").should("have.length.at.least", 2).first().findByText("Free")
 
     cy.findByLabelText("Under $50").click()
     cy.url().should('include', '/games?sort=price%3Adesc&price_lte=50')
+    cy.wait(500)
     cy.getByDataCy("game-card").should("have.length.at.least", 2).first().findByText("$50.00")
 
     cy.findByLabelText("Under $100").click()
     cy.url().should('include', '/games?sort=price%3Adesc&price_lte=100')
+    cy.wait(500)
     cy.getByDataCy("game-card").should("have.length.at.least", 2).first().findByText("$96.18")
 
     cy.findByLabelText("Under $150").click()
     cy.url().should('include', '/games?sort=price%3Adesc&price_lte=150')
+    cy.wait(500)
     cy.getByDataCy("game-card").should("have.length.at.least", 2).first().findByText("$149.90")
 
     cy.findByLabelText("Under $250").click()
     cy.url().should('include', '/games?sort=price%3Adesc&price_lte=250')
+    cy.wait(500)
     cy.getByDataCy("game-card").should("have.length.at.least", 2).first().findByText("$200.09")
 
     cy.findByLabelText("Under $500").click()
     cy.url().should('include', '/games?sort=price%3Adesc&price_lte=500')
+    cy.wait(500)
     cy.getByDataCy("game-card").should("have.length.at.least", 2).first().findByText("$275.39")
+  })
+
+  it("should filter by platform and genre", () => {
+    cy.findByLabelText("Windows").click()
+    cy.url().should('contain', 'platforms=windows')
+
+    cy.findByLabelText("Linux").click()
+    cy.url().should('contain', 'platforms=linux')
+
+    cy.findByLabelText("Mac OS").click()
+    cy.url().should('contain', 'platforms=mac')
+
+    cy.findByLabelText("Puzzle").click()
+    cy.url().should('contain', 'categories=puzzle')
+  })
+
+  it("should render empty search if no games match", () => {
+    cy.visit("/games")
+
+    cy.findByLabelText("Linux").click()
+    cy.findByLabelText("Sports").click()
+
+    cy.findByText("We didn't find any games with this filter").should("exist")
   })
 })

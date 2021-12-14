@@ -21,11 +21,16 @@ declare namespace Cypress {
      * Custom comand to render banner
      * @example cy.shouldRenderBanner()
      */
-    shouldRenderBanner(): void,
+    shouldRenderBanner(): Chainable<JQuery<HTMLElement>>,
     /**
      * Custom comand to render showcase
      * @example cy.shouldRenderShowcase()
      */
-    shouldRenderShowcase(attrs: ShowcaseAttributes): void
+    shouldRenderShowcase(attrs: ShowcaseAttributes): void,
+     /**
+     * Custom comand to signup a random user
+     * @example cy.shouldSignup()
+     */
+    shouldSignup(): Chainable<JQuery<HTMLElement>>
   }
 }

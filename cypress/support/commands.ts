@@ -25,6 +25,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import '@testing-library/cypress/add-commands'
+import { createUser } from "../support/generate";
+
 
 Cypress.Commands.add('google', () => cy.visit('https://google.com'))
 
@@ -76,4 +78,18 @@ Cypress.Commands.add("shouldRenderShowcase", ({ name, highlight = false }) => {
 
     cy.getByDataCy("game-card").should("have.length.gt", 3)
   })
+})
+
+Cypress.Commands.add("shouldSignup", () => {
+  const user = createUser();
+  cy.findByRole("heading", { name: /Sign Up/i }).should("exist")
+
+  cy.findByPlaceholderText(/User Name/i).should("exist").type(user.username)
+  cy.findByPlaceholderText(/Email/i).should("exist").type(user.email)
+  cy.findByPlaceholderText(/^Password/i).should("exist").type(user.password)
+  cy.findByPlaceholderText(/Confirm Password/i).should("exist").type(user.password)
+  cy.findByRole("button", { name: /Sign Up now!/i }).should("exist").click()
+
+  cy.url().should("eq", `${Cypress.config().baseUrl}/`)
+  cy.findByText(user.username).should("exist")
 })

@@ -11,11 +11,7 @@ export type OrderListProps = {
   }>
 }
 
-function sortOrdersByPurschasedDate(firstValue, secondValue) {
-  return new Date(firstValue.created_at) > new Date(secondValue.created_at)
-    ? 1
-    : -1
-}
+export type SortOrderProps = Pick<PaymentInfoProps, 'purchaseDate'>
 
 const OrderList = ({ items }: OrderListProps) => {
   return (
@@ -35,7 +31,7 @@ const OrderList = ({ items }: OrderListProps) => {
               />
             ))
           )
-          .sort(sortOrdersByPurschasedDate)
+          .reverse()
       ) : (
         <Empty
           title="You haven't made a purchase yet."

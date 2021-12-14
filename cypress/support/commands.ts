@@ -97,9 +97,4 @@ Cypress.Commands.add("shouldSignin", (user: User) => {
   cy.findByPlaceholderText(/^Password/i).should("exist").type(user?.password || "123456")
   cy.findByRole("button", { name: /Sign In now!/i }).should("exist").click()
   cy.findByText( user?.username || "cypress").should("exist")
-
-  cy.url().should("eq", `${Cypress.config().baseUrl}/`)
-
-  cy.findByText(user?.username || "cypress").click()
-  cy.findByText("Log out").click()
 })

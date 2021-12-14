@@ -4,13 +4,8 @@ describe('Cart', () => {
   it('should add and remove items from cart', () => {
     cy.visit("/")
 
-    cy.getByDataCy("Free to play").should("exist")
-
-    cy.wait(500)
-
     cy.getByDataCy("Free to play").within(() => {
-      cy.findAllByText("Free").first().should("exist")
-      cy.findAllByRole("button").first().click()
+      cy.findAllByRole("button").first().should("exist").click()
     })
 
     cy.findAllByLabelText(/cart items/i).first().should("have.text", 1)

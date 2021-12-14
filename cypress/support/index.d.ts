@@ -1,5 +1,11 @@
 /// <reference types="cypress" />
 
+type User = {
+  username: string
+  email: string
+  password: string
+}
+
 type ShowcaseAttributes = {
   name: string
   highlight?: boolean
@@ -21,7 +27,7 @@ declare namespace Cypress {
      * Custom comand to render banner
      * @example cy.shouldRenderBanner()
      */
-    shouldRenderBanner(): Chainable<JQuery<HTMLElement>>,
+    shouldRenderBanner(): void,
     /**
      * Custom comand to render showcase
      * @example cy.shouldRenderShowcase()
@@ -31,6 +37,6 @@ declare namespace Cypress {
      * Custom comand to signup a random user
      * @example cy.shouldSignup()
      */
-    shouldSignup(): Chainable<JQuery<HTMLElement>>
+    shouldSignup({ username, email, password}: User): void
   }
 }

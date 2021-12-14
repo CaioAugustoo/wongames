@@ -25,8 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import '@testing-library/cypress/add-commands'
-import { createUser } from "../support/generate";
-
+import { User } from './generate'
 
 Cypress.Commands.add('google', () => cy.visit('https://google.com'))
 
@@ -80,16 +79,15 @@ Cypress.Commands.add("shouldRenderShowcase", ({ name, highlight = false }) => {
   })
 })
 
-Cypress.Commands.add("shouldSignup", () => {
-  const user = createUser();
+Cypress.Commands.add("shouldSignup", ({ username, email, password }: User) => {
   cy.findByRole("heading", { name: /Sign Up/i }).should("exist")
 
-  cy.findByPlaceholderText(/User Name/i).should("exist").type(user.username)
-  cy.findByPlaceholderText(/Email/i).should("exist").type(user.email)
-  cy.findByPlaceholderText(/^Password/i).should("exist").type(user.password)
-  cy.findByPlaceholderText(/Confirm Password/i).should("exist").type(user.password)
+  cy.findByPlaceholderText(/User Name/i).should("exist").type(username)
+  cy.findByPlaceholderText(/Email/i).should("exist").type(email)
+  cy.findByPlaceholderText(/^Password/i).should("exist").type(password)
+  cy.findByPlaceholderText(/Confirm Password/i).should("exist").type(password)
   cy.findByRole("button", { name: /Sign Up now!/i }).should("exist").click()
 
   cy.url().should("eq", `${Cypress.config().baseUrl}/`)
-  cy.findByText(user.username).should("exist")
+  cy.findByText(username).should("exist")
 })

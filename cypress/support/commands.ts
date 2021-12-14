@@ -91,3 +91,15 @@ Cypress.Commands.add("shouldSignup", ({ username, email, password }: User) => {
   cy.url().should("eq", `${Cypress.config().baseUrl}/`)
   cy.findByText(username).should("exist")
 })
+
+Cypress.Commands.add("shouldSignin", (user: User) => {
+  cy.findByPlaceholderText(/Email/i).should("exist").type(user?.email || "e2e@wongames.com")
+  cy.findByPlaceholderText(/^Password/i).should("exist").type(user?.password || "123456")
+  cy.findByRole("button", { name: /Sign In now!/i }).should("exist").click()
+  cy.findByText( user?.username || "cypress").should("exist")
+
+  cy.url().should("eq", `${Cypress.config().baseUrl}/`)
+
+  cy.findByText(user?.username || "cypress").click()
+  cy.findByText("Log out").click()
+})

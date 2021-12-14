@@ -5,8 +5,13 @@ import { createUser } from "../support/generate";
 const user = createUser();
 
 describe("User",() => {
-  it("should signup", () => {
+  it.skip("should signup", () => {
     cy.visit("/sign-up")
     cy.shouldSignup({ ...user })
+  })
+
+  it("should signin and signout", () => {
+    cy.visit("/sign-in")
+    cy.shouldSignin()
   })
 })

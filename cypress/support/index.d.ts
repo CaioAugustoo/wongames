@@ -37,6 +37,11 @@ declare namespace Cypress {
      * Custom comand to signup a random user
      * @example cy.shouldSignup()
      */
-    shouldSignup({ username, email, password}: User): void
+    shouldSignup({ username, email, password}: User): void,
+     /**
+     * Custom comand to signin
+     * @example cy.shouldSignin()
+     */
+    shouldSignin(user?: User): void
   }
 }

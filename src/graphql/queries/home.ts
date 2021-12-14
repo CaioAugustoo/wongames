@@ -11,7 +11,7 @@ export const QUERY_HOME = gql`
 
     newGames: games(
       where: { release_date_lte: $date }
-      sort: "release_date:desc"
+      sort: "release_date:asc"
       limit: 8
     ) {
       ...GameFragment

@@ -555,6 +555,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
 
 <section
   class="c0 c1"
+  data-cy="Most Popular"
 >
   <h2
     class="c2 c3"
@@ -564,6 +565,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
   </h2>
   <section
     class="c4 c5"
+    data-cy="highlight"
   >
     <img
       alt="Read Dead is back! background"
@@ -621,6 +623,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
               <div>
                 <article
                   class="c14"
+                  data-cy="game-card"
                 >
                   <a
                     class="c15"

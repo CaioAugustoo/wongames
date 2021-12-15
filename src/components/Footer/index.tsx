@@ -68,9 +68,9 @@ const Footer = () => {
             <Link href="/games">
               <a>Store</a>
             </Link>
-            <Link href="/search">
+            {/* <Link href="/search">
               <a>Search</a>
-            </Link>
+            </Link> */}
           </nav>
         </S.Column>
 

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
-import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
+// import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
 import Button from '../Button/index'
@@ -49,9 +49,9 @@ const Menu = ({ username, loading }: MenuProps) => {
       {!loading && (
         <>
           <S.MenuGroup>
-            <S.IconWrapper>
+            {/* <S.IconWrapper>
               <SearchIcon aria-label="Search" />
-            </S.IconWrapper>
+            </S.IconWrapper> */}
             <S.IconWrapper>
               <MediaMatch greaterThan="medium">
                 <CartDropdown />

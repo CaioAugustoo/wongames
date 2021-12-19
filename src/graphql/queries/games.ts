@@ -18,6 +18,16 @@ export const QUERY_GAMES = gql`
   ${GameFragment}
 `
 
+export const QUERY_GAME_BY_NAME = gql`
+  query gamesByName($name: String) {
+    games(where: { name: $name }) {
+      ...GameFragment
+    }
+  }
+
+  ${GameFragment}
+`
+
 export const QUERY_GAME_BY_SLUG = gql`
   query QueryGameBySlug($slug: String!) {
     games(where: { slug: $slug }) {

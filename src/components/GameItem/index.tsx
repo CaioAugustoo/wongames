@@ -17,6 +17,7 @@ export type GameItemProps = {
   price: string
   downloadLink?: string
   paymentInfo?: PaymentInfoProps
+  showIsInCart: boolean
 }
 
 const GameItem = ({
@@ -25,7 +26,8 @@ const GameItem = ({
   title,
   price,
   downloadLink,
-  paymentInfo
+  paymentInfo,
+  showIsInCart = true
 }: GameItemProps) => {
   const { isInCart, removeFromCart } = useCart()
 
@@ -51,7 +53,7 @@ const GameItem = ({
           </S.Title>
           <S.Group>
             <S.Price>{price}</S.Price>
-            {isInCart(id) && (
+            {showIsInCart && isInCart(id) && (
               <S.Remove onClick={() => removeFromCart(id)}>Remove</S.Remove>
             )}
           </S.Group>

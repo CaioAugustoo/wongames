@@ -2,16 +2,17 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
-// import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
 import Button from '../Button/index'
 import Logo from '../Logo/index'
 import MediaMatch from '../MediaMatch/index'
-import * as S from './styles'
 import CartDropdown from 'components/CartDropdown'
 import UserDropdown from 'components/UserDropdown'
 import CartIcon from 'components/CartIcon'
+import SearchDropdown from 'components/SearchDropdown'
+
+import * as S from './styles'
 
 export type MenuProps = {
   username?: string | null
@@ -49,9 +50,9 @@ const Menu = ({ username, loading }: MenuProps) => {
       {!loading && (
         <>
           <S.MenuGroup>
-            {/* <S.IconWrapper>
-              <SearchIcon aria-label="Search" />
-            </S.IconWrapper> */}
+            <S.IconWrapper>
+              <SearchDropdown />
+            </S.IconWrapper>
             <S.IconWrapper>
               <MediaMatch greaterThan="medium">
                 <CartDropdown />

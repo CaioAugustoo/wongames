@@ -120,3 +120,9 @@ export const CardInfo = styled.div`
     `}
   `}
 `
+
+export const Description = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.black};
+  `}
+`

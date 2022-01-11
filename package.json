@@ -32,7 +32,7 @@
     ]
   },
   "dependencies": {
-    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/react-stripe-js": "^1.7.0",
     "@stripe/stripe-js": "^1.21.2",
     "graphql": "^15.5.1",
     "joi": "^17.5.0",
@@ -49,7 +49,7 @@
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
-    "@apollo/client": "^3.3.20",
+    "@apollo/client": "^3.5.7",
     "@babel/core": "^7.15.5",
     "@babel/preset-typescript": "^7.12.7",
     "@jackfranklin/test-data-bot": "^1.4.0",

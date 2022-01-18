@@ -62,7 +62,7 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.4.0",
     "@types/lodash.xor": "^4.5.6",
-    "@types/node": "^17.0.5",
+    "@types/node": "^17.0.9",
     "@types/react": "^17.0.38",
     "@types/react-slick": "^0.23.8",
     "@types/styled-components": "^5.1.19",

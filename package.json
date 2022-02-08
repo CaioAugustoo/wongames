@@ -32,7 +32,7 @@
     ]
   },
   "dependencies": {
-    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/react-stripe-js": "^1.7.0",
     "@stripe/stripe-js": "^1.21.2",
     "graphql": "^15.5.1",
     "joi": "^17.5.0",
